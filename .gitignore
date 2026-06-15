@@ -1,0 +1,13 @@
+# Pasta de cache/import do Godot 4 (regenerada automaticamente)
+.godot/
+
+# Exports gerados
+/build/
+/export/
+*.exe
+*.pck
+*.zip
+
+# Arquivos de SO/editor
+.DS_Store
+Thumbs.db
