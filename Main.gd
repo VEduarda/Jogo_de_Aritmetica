@@ -8,7 +8,7 @@ const EQUATIONS := [
 	{"a": 9, "b": 1, "result": 10},
 	{"a": 7, "b": 3, "result": 4},
 	{"a": 4, "b": 3, "result": 12},
-	{"a": 5, "b": 4, "result": 11},
+	{"a": 15, "b": 3, "result": 5},
 	{"a": 12, "b": 6, "result": 2},
 ]
 
@@ -30,7 +30,7 @@ func _ready() -> void:
 func _build_ui() -> void:
 	# Fundo claro.
 	var bg := ColorRect.new()
-	bg.color = Color("f4f7fb")
+	bg.color = Color("f41cfbff")
 	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
 	bg.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(bg)
