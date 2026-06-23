@@ -6,6 +6,7 @@ class_name DropSlot
 var op: String = ""
 var _label: Label
 
+const SLOT_SIZE := Vector2(55, 55)
 
 func _ready() -> void:
 	custom_minimum_size = SLOT_SIZE
