@@ -28,10 +28,12 @@ func _ready() -> void:
 # --------------------------------------------------------------------------
 
 func _build_ui() -> void:
-	# Fundo claro.
-	var bg := ColorRect.new()
-	bg.color = Color("f41cfbff")
+	# Imagem de fundo.
+	var bg := TextureRect.new()
+	bg.texture = load("res://FundoJogo (2).png")
 	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
+	bg.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	bg.stretch_mode = TextureRect.STRETCH_SCALE
 	bg.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(bg)
 
@@ -49,8 +51,13 @@ func _build_ui() -> void:
 	columns.add_theme_constant_override("separation", 32)
 	margin.add_child(columns)
 
-	columns.add_child(_build_left_column())
-	columns.add_child(_build_operators_panel())
+	var left = _build_left_column()
+	left.position = Vector2(20, 5)
+	add_child(left)
+
+	var ops = _build_operators_panel()
+	ops.position = Vector2(960, 20)
+	add_child(ops)
 
 ## Coluna da esquerda: título, contas e botão de ação.
 func _build_left_column() -> Control:
@@ -70,11 +77,15 @@ func _build_left_column() -> Control:
 	_status_label = Label.new()
 	_status_label.add_theme_font_size_override("font_size", 22)
 	col.add_child(_status_label)
+	
+	var spacer := Control.new()
+	spacer.custom_minimum_size = Vector2(0, 25) # 100 pixels de altura
+	col.add_child(spacer)
 
 	_action_button = Button.new()
 	_action_button.text = "Executar"
 	_action_button.add_theme_font_size_override("font_size", 24)
-	_action_button.custom_minimum_size = Vector2(180, 48)
+	_action_button.custom_minimum_size = Vector2(880, 50)
 	_action_button.pressed.connect(_on_action_pressed)
 	col.add_child(_action_button)
 
@@ -131,6 +142,7 @@ func _build_operators_panel() -> Control:
 	var header := Label.new()
 	header.text = "Operações"
 	header.add_theme_font_size_override("font_size", 24)
+	header.add_theme_color_override("font_color", Color(1, 1, 1, 0))
 	inner.add_child(header)
 
 	for op in OPERATORS:
@@ -175,7 +187,7 @@ func _reset_round() -> void:
 	for label in _result_labels:
 		label.text = ""
 	_status_label.text = ""
-	_action_button.text = "Executar"
+	_action_button.text = " "
 	_checked = false
 
 ## Aplica o operador. Retorna null se a operação não dá um inteiro válido.

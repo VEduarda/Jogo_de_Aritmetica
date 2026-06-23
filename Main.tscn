@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://diay2hwkm27jf"]
 
 [ext_resource type="Script" uid="uid://8a55fmevlur5" path="res://Main.gd" id="1_main"]
+[ext_resource type="Texture2D" uid="uid://dn4f225n7qqq5" path="res://FundoJogo (2).png" id="2_uu6xs"]
 
 [node name="Main" type="Control" unique_id=1164531736]
 layout_mode = 3
@@ -14,3 +15,12 @@ offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_main")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1249345748]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 5.0
+offset_right = 1156.0
+offset_bottom = 653.0
+texture = ExtResource("2_uu6xs")
+expand_mode = 1

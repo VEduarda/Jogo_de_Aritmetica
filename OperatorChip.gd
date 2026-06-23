@@ -5,7 +5,7 @@ class_name OperatorChip
 
 @export var op: String = "+"
 
-const CHIP_SIZE := Vector2(70, 70)
+const CHIP_SIZE := Vector2(70, 60)
 
 func _ready() -> void:
 	custom_minimum_size = CHIP_SIZE
