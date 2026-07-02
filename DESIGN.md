@@ -1,4 +1,5 @@
 # Jogo das Operações — Documento de Design
+# Nome: Anna Laura Balmiza Soares, Sabryna da Silva Moretto, Sophia Camargo Tercette e Vitória Eduarda de Souza.
 
 ## Visão geral
 Jogo educativo (web) para crianças (~6–10 anos) praticarem as 4 operações
